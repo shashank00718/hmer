@@ -1,0 +1,1 @@
+\Phi=\int E\left({\hat{e}}_{\angle}\cdot dA\right)

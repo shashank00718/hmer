@@ -1,0 +1,1 @@
+\frac{1+\frac{n}{c}\cos\iota_{s}}{\sqrt{1\cdot\frac{n^{3}}{c^{3}}}}

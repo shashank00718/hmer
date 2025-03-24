@@ -1,0 +1,1 @@
+\vartheta(n)=\frac{1}{\sqrt{1-\frac{n^{7}}{c^{7}}}}

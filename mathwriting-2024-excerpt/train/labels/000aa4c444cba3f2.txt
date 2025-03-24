@@ -1,0 +1,1 @@
+\vartheta =-\frac{\log \frac{\phi_{\varsigma_{1}}}{\phi_{\varsigma_{2}}}}{\log \frac{\varsigma_{1}}{\varsigma_{2}}}

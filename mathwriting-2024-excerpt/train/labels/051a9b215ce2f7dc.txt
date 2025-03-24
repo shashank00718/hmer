@@ -1,0 +1,1 @@
+\overline{S_n} = a \mathbb{I}\{S_n > a\}

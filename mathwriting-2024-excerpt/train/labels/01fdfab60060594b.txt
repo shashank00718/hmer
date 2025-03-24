@@ -1,0 +1,1 @@
+|S| \le \binom{n}{\lfloor n/2\rfloor}

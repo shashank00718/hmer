@@ -1,0 +1,1 @@
+\{A_i \mid i \in \underline{m} \backslash A\}

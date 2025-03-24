@@ -1,0 +1,1 @@
+\langle Pu,u\rangle>0,\forall u\ne0

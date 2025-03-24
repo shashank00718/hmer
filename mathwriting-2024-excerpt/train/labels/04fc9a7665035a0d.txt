@@ -1,0 +1,1 @@
+a_{b,i}=\gamma_{b,i}\frac{b_{i}}{b^{\ominus}}

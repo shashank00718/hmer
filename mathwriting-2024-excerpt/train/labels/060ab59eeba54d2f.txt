@@ -1,0 +1,1 @@
+\begin{bmatrix} 1 & 0 \\ -sC & 1 \end{bmatrix}

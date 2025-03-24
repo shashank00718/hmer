@@ -1,0 +1,1 @@
+\Rightarrow ln\frac{x(t)}{x(0)}=kt

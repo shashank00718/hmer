@@ -1,0 +1,1 @@
+\frac{\partial \Pi}{\partial x_j}

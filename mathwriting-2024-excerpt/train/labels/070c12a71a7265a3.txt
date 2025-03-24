@@ -1,0 +1,1 @@
+\left(\frac{q}{p}\right)=\left(\frac{p^{*}}{q}\right)

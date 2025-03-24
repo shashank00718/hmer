@@ -1,0 +1,1 @@
+\frac{d}{dt}\frac{\partial R}{\partial \dot{\zeta}_{j}}=\frac{\partial R}{\partial \zeta_{j}}

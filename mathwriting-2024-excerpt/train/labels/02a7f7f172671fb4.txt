@@ -1,0 +1,1 @@
+F_{out}d_{out}=\eta F_{in}d_{in}

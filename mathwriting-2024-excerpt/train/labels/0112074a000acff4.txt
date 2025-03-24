@@ -1,0 +1,1 @@
+\Omega =\frac{\Delta PE}{\Delta t}

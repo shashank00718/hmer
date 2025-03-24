@@ -1,0 +1,1 @@
+\mathbb{E}[\log X!] = \overline{\log X!}

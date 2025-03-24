@@ -1,0 +1,1 @@
+\xi=\frac{x}{2 \sqrt{t}}

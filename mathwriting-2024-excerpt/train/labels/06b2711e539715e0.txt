@@ -1,0 +1,1 @@
+\Leftrightarrow 1 -\frac{1}{r}<\left[\frac{m}{r}\right]_{1}

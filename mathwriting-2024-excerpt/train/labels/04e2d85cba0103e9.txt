@@ -1,0 +1,1 @@
+x=\frac{4}{\sqrt{4+\tfrac{v^{2}}{c^{2}}}}\upsilon

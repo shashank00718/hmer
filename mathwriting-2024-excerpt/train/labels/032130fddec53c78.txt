@@ -1,0 +1,1 @@
+\mathbf{P}\in \mathbb{R}^{2k\times d}

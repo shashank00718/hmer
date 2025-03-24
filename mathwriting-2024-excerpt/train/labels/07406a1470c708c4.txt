@@ -1,0 +1,1 @@
+C=P\times\frac{F_{L}}{F_{n}}

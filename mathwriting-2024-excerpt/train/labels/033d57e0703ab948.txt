@@ -1,0 +1,1 @@
+lim_{n\longrightarrow\infty}\alpha\left(G_{n},\varepsilon\right)=0

@@ -1,0 +1,1 @@
+q=min\left(al,\frac{k}{\sigma}\right)

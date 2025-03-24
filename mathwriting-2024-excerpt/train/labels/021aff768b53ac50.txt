@@ -1,0 +1,1 @@
+\nu(A)=\int_A f_n d\mu

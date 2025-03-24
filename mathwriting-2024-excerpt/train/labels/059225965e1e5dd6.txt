@@ -1,0 +1,1 @@
+\frac{1}{16}\left[\begin{array}{ccccc}-&\# &7 \\ 3 &5 &1 \end{array}\right]

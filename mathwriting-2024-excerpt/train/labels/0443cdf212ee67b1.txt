@@ -1,0 +1,1 @@
+t=\frac{0}{\sqrt{0+\tfrac{u^{2}}{c^{2}}}}\kappa

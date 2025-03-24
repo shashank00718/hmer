@@ -1,0 +1,1 @@
+\mu=A_{H}T\cdot e^{Q_{L}/RT}

@@ -1,0 +1,1 @@
+d\approx \sqrt{2 \cdot k\cdot R\cdot h}
