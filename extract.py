@@ -47,8 +47,8 @@ def read_inkml_file(filename):
 
 
 def save_image(strokes, filename):
-    """Saves the strokes as a 128 X 128 JPG image without grid, title, or axes."""
-    plt.figure(figsize=(5.12, 5.12))  # Scales to 64x64 pixels with dpi=25
+    """Saves the strokes as a 256 X 256 JPG image without grid, title, or axes."""
+    plt.figure(figsize=(2.56, 2.56))  # Scales to 64x64 pixels with dpi=25
     for stroke in strokes:
         plt.plot(stroke[0], stroke[1], linewidth=2, color="black")
 
@@ -56,7 +56,7 @@ def save_image(strokes, filename):
     plt.axis("off")
     plt.xticks([])
     plt.yticks([])
-    plt.savefig(filename, bbox_inches='tight', pad_inches=0, dpi=25)  # Ensures 64x64 output
+    plt.savefig(filename, bbox_inches='tight', pad_inches=0, dpi=100)
     plt.close()
 
 
