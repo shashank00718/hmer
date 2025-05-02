@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 
 # Define paths
-TRAIN_FOLDER = r"C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\train"
+TRAIN_FOLDER = r"C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\test"
 OUTPUT_IMAGE_FOLDER = os.path.join(TRAIN_FOLDER, "extracted_images")
 OUTPUT_LABEL_FOLDER = os.path.join(TRAIN_FOLDER, "labels")
 

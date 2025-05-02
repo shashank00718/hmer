@@ -1,116 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0c9d1a-643f-43d9-84d8-efb833d964aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_iterator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dictionary.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pre trained weights.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/visualise_attn.py" afterDir="false" />
+    <list default="true" id="8e0c9d1a-643f-43d9-84d8-efb833d964aa" name="Changes" comment="model">
+      <change afterPath="$PROJECT_DIR$/densenet121_pretrained.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/000a4e8ca49c5a1c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/001083e26028da36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0017bb5822bcba69.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/002ae6d5dd4173e4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00386113d577085b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/003ca9082c7047d3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/004c9413be3ff1be.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/004fc8d3f626f1d9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0052b8e13b5f4a36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00692074bbc0f678.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/006badbfc63bbd21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0082d4aa943b9f8c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0083f66ddd05c46c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0090db2a639b5c98.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00915f0ffe17930e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/009d124a50399bba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/009fb93aab47d6f5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00ad7566b9f1d872.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00ba90fe7f71d8c6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00c46c9b07b39bb7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00d4fc6636cbf2d9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00db5331b85f4d47.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00eaf4f2d3d20bb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00fcddfee1ebfee6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/00fee560e6c9af79.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/010d0f9e951a7a44.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/010d4fea2361f01f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0111fa141bb73b48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0114e881d8b22bbb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/011f1f41eb55b661.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0121d7fdad59c8ab.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01292cf19c2c9c7c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/013a32b84ce6252f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01453872d3d2afe5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/014f7412fa06f5c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/015e012d8baa97f3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/016a39f81ff20b8d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01752f0f5fba0225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0175c1fb5814dc11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0180366e774d93be.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01859fc130dc9008.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01917677eaf160bb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0199f657babdf636.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01a2f3186b7e33e1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01a53ae1e3a9b918.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01ab618a2350036f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01b552b8a037ab13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01b74db41e479782.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01c37bbe7ea55c56.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01cdd808862eab64.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01cf085d26abe325.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d12458811a5a38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d2b56291c7ffdd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d2f97f90ed79e6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d4d9a9dc145333.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d54b93c127e89c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01d90fce29b20f64.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01e4c8973307a964.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01e6c79f4d27bc54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/01f3445177808c3d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0204f1101b3f4033.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02248037ee4a5528.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/022b4cfb5a5a3856.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/022be26e0a8ab535.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0235a447c15a24d7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/023a443f36a838ff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/024279a4b8037bae.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0247a5d7e1002d66.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0255dc5b14261907.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/025f51bee0e59494.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02657f6bba1d2004.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/026fd85034106735.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02720f6a67e8bc09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0272a794109d5d2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0276c02c9b9222e9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/028414d36ea98262.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02894b4ff1ee6c7b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/028cf1f0507df703.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/029b5da0999d4903.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/029decc2d74fd082.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02ace78dfc726867.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02aced0c052805c6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02b1dc6d4efd493a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02b7060b95d998eb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02c39c1be9d660b7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02c6f6dea91a2a06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02c9daf282f5a1e3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02d5b5f98ac5fbd2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02da6f52e30f674d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02dcdb815d18cdf1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/02de91b624143438.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/030373f9d3edac3b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/030a0f18b6fcb87b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/030ea5646116a251.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0316d949cd776194.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/032278982233fefa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/032360b882783120.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0325d90612c71772.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/03277de2f80a8aaf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/extracted_images/0333d9584ff7c0d0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/000a4e8ca49c5a1c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/001083e26028da36.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0017bb5822bcba69.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/002ae6d5dd4173e4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00386113d577085b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/003ca9082c7047d3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/004c9413be3ff1be.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/004fc8d3f626f1d9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0052b8e13b5f4a36.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00692074bbc0f678.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/006badbfc63bbd21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0082d4aa943b9f8c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0083f66ddd05c46c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0090db2a639b5c98.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00915f0ffe17930e.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/009d124a50399bba.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/009fb93aab47d6f5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00ad7566b9f1d872.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00ba90fe7f71d8c6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00c46c9b07b39bb7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00d4fc6636cbf2d9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00db5331b85f4d47.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00eaf4f2d3d20bb1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00fcddfee1ebfee6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/00fee560e6c9af79.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/010d0f9e951a7a44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/010d4fea2361f01f.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0111fa141bb73b48.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0114e881d8b22bbb.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/011f1f41eb55b661.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0121d7fdad59c8ab.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01292cf19c2c9c7c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/013a32b84ce6252f.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01453872d3d2afe5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/014f7412fa06f5c0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/015e012d8baa97f3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/016a39f81ff20b8d.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01752f0f5fba0225.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0175c1fb5814dc11.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0180366e774d93be.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01859fc130dc9008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01917677eaf160bb.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0199f657babdf636.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01a2f3186b7e33e1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01a53ae1e3a9b918.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01ab618a2350036f.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01b552b8a037ab13.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01b74db41e479782.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01c37bbe7ea55c56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01cdd808862eab64.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01cf085d26abe325.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d12458811a5a38.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d2b56291c7ffdd.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d2f97f90ed79e6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d4d9a9dc145333.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d54b93c127e89c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01d90fce29b20f64.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01e4c8973307a964.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01e6c79f4d27bc54.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/01f3445177808c3d.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0204f1101b3f4033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02248037ee4a5528.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/022b4cfb5a5a3856.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/022be26e0a8ab535.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0235a447c15a24d7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/023a443f36a838ff.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/024279a4b8037bae.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0247a5d7e1002d66.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0255dc5b14261907.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/025f51bee0e59494.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02657f6bba1d2004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/026fd85034106735.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02720f6a67e8bc09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0272a794109d5d2d.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0276c02c9b9222e9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/028414d36ea98262.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02894b4ff1ee6c7b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/028cf1f0507df703.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/029b5da0999d4903.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/029decc2d74fd082.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02ace78dfc726867.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02aced0c052805c6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02b1dc6d4efd493a.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02b7060b95d998eb.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02c39c1be9d660b7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02c6f6dea91a2a06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02c9daf282f5a1e3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02d5b5f98ac5fbd2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02da6f52e30f674d.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02dcdb815d18cdf1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/02de91b624143438.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/030373f9d3edac3b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/030a0f18b6fcb87b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/030ea5646116a251.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0316d949cd776194.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/032278982233fefa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/032360b882783120.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0325d90612c71772.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/03277de2f80a8aaf.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/test/labels/0333d9584ff7c0d0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/Train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/000aa4c444cba3f2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/000aa4c444cba3f2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/004970a2ad0fcb27.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/004970a2ad0fcb27.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0050464363a7d02d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0050464363a7d02d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0053f4751a1d9065.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0053f4751a1d9065.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/005f0a6b379cc5db.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/005f0a6b379cc5db.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00874649f83c08b3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00874649f83c08b3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00bc1c89dff0672e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00bc1c89dff0672e.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00bddacfb3de33ce.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00bddacfb3de33ce.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00c0cefd35f09179.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00c0cefd35f09179.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00e206f3a5cdc7fb.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/00e206f3a5cdc7fb.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/010c427bf30599d3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/010c427bf30599d3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0112074a000acff4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0112074a000acff4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01650d074915628e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01650d074915628e.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01751ea13ceb1817.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01751ea13ceb1817.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/018cd2d904174062.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/018cd2d904174062.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01a043f03146f76c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01a043f03146f76c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01d4536a52886b73.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01d4536a52886b73.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01d4ae95eb9e94c8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01d4ae95eb9e94c8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01e8ffa2afd3ae8e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01e8ffa2afd3ae8e.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01f2f6142ec1c97f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01f2f6142ec1c97f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01fdfab60060594b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/01fdfab60060594b.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/020ebba0c00073be.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/020ebba0c00073be.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/021aff768b53ac50.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/021aff768b53ac50.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02210ec4545e3b0a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02210ec4545e3b0a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02229a0c174d8dbe.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02229a0c174d8dbe.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02270559509706de.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02270559509706de.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/025f579aa67dfd7c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/025f579aa67dfd7c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/028a59322b50b764.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/028a59322b50b764.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02a7f7f172671fb4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02a7f7f172671fb4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02c82a919e114b86.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02c82a919e114b86.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02f5816611877c27.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02f5816611877c27.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02f72a386327c6d9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/02f72a386327c6d9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032130fddec53c78.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032130fddec53c78.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0326c8496e189144.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0326c8496e189144.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032cab7514e408ba.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032cab7514e408ba.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032e674bf4a61ff0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/032e674bf4a61ff0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/033bbf63000c086d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/033bbf63000c086d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/033d57e0703ab948.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/033d57e0703ab948.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03474b3d9a7ae87b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03474b3d9a7ae87b.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0368471ca4fbe892.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0368471ca4fbe892.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/038ccb46ae3443db.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/038ccb46ae3443db.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03af7845cfbbde59.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03af7845cfbbde59.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03bd51165a1a81b1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03bd51165a1a81b1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03c3977784c8f56c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03c3977784c8f56c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03d01506fe3647c4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03d01506fe3647c4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03d92e3e170bb629.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/03d92e3e170bb629.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04026cefc5bee356.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04026cefc5bee356.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0417ce94315c0dea.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0417ce94315c0dea.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0426225e4adc4605.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0426225e4adc4605.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0435a7e82431e973.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0435a7e82431e973.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0443cdf212ee67b1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0443cdf212ee67b1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/046728735864246f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/046728735864246f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/046fde10ad80f6f4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/046fde10ad80f6f4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/047ce2586c0b5f0c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/047ce2586c0b5f0c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04852f06a82865c1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04852f06a82865c1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0491ecbb62f31a6e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0491ecbb62f31a6e.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/049aa166f1cfb206.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/049aa166f1cfb206.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/049d2cf3f10ac2d7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/049d2cf3f10ac2d7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04a855ef776363c2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04a855ef776363c2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04aeed012ef93461.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04aeed012ef93461.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04e2d85cba0103e9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04e2d85cba0103e9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04e56f2e30f866d8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04e56f2e30f866d8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04f16ee0cbb55791.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04f16ee0cbb55791.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04f65fb089280e4c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04f65fb089280e4c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04fc707abea3e7a1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04fc707abea3e7a1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04fc9a7665035a0d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/04fc9a7665035a0d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/050eb35c2f18a695.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/050eb35c2f18a695.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/050f08e2fe6fe162.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/050f08e2fe6fe162.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/051a9b215ce2f7dc.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/051a9b215ce2f7dc.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05373ec225cc541a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05373ec225cc541a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0578f6b97d18358a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0578f6b97d18358a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05882db6930f636c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05882db6930f636c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/059225965e1e5dd6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/059225965e1e5dd6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/059ac88233086bc0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/059ac88233086bc0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05c704f21b802507.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05c704f21b802507.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05f2be02bbe36bd4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05f2be02bbe36bd4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05fa73b7807336c8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/05fa73b7807336c8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0606da46464a5804.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0606da46464a5804.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/060ab59eeba54d2f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/060ab59eeba54d2f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06186bea537734a2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06186bea537734a2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/063aa42f5d0ef5be.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/063aa42f5d0ef5be.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0656e77f512563c5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0656e77f512563c5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0667cabda0ae2b81.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0667cabda0ae2b81.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0668dd347d600906.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0668dd347d600906.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/067a327b0c92095f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/067a327b0c92095f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/068de3aad90c403c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/068de3aad90c403c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0698cd5349dae70c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0698cd5349dae70c.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06a81979619c88e4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06a81979619c88e4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06b2711e539715e0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06b2711e539715e0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06c6f0395cdee938.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/06c6f0395cdee938.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0703652c7a0c26f7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0703652c7a0c26f7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/070c12a71a7265a3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/070c12a71a7265a3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0717c14705cc721d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/0717c14705cc721d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/073036bdd616605d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/073036bdd616605d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07406a1470c708c4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07406a1470c708c4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07534c098d424d5f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07534c098d424d5f.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07549352bfb72996.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07549352bfb72996.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07556e5288679e40.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/07556e5288679e40.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/076be7470d48f458.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/076be7470d48f458.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/076e7b58bfaba0f1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mathwriting-2024-excerpt/train/extracted_images/076e7b58bfaba0f1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pre trained weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/pre trained weights.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,16 +240,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/shash/PycharmProjects/hmer",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shash/PycharmProjects/hmer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shash\PycharmProjects\hmer" />
@@ -221,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1742838963442</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="model">
+      <created>1742894190356</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742894190356</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +346,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="imported data" />
     <MESSAGE value="extracted train data" />
-    <option name="LAST_COMMIT_MESSAGE" value="extracted train data" />
+    <MESSAGE value="model" />
+    <option name="LAST_COMMIT_MESSAGE" value="model" />
   </component>
 </project>

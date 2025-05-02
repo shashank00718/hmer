@@ -1,6 +1,9 @@
+import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.utils import parametrizations
+import numpy as np
 
 class CausalConvGLU(nn.Module):
     """
@@ -8,10 +11,9 @@ class CausalConvGLU(nn.Module):
     """
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, padding=2):
         super(CausalConvGLU, self).__init__()
-        # Causal convolution
-        self.conv = nn.utils.weight_norm(
-            nn.Conv1d(in_channels, out_channels * 2, kernel_size, stride=stride, padding=padding)
-        )
+        # Update to use new parametrizations.weight_norm
+        conv = nn.Conv1d(in_channels, out_channels * 2, kernel_size, stride=stride, padding=padding)
+        self.conv = parametrizations.weight_norm(conv)
         self.glu = nn.GLU(dim=1)  # Gated Linear Unit splits input into two channels for gating
 
     def forward(self, x):
@@ -59,21 +61,22 @@ class AttnDecoderCausal(nn.Module):
     def preaware_attention(self, decoder_state, encoder_outputs, previous_attention, Wpa):
         """
         Implements pre-aware coverage attention.
-        :param decoder_state: Current decoder hidden state (batch, hidden_size)
-        :param encoder_outputs: Encoder outputs (batch, seq_len, hidden_size)
-        :param previous_attention: Coverage of past attention (batch, seq_len)
-        :param Wpa: Pre-aware attention matrix
         """
         batch_size, seq_len, hidden_size = encoder_outputs.size()
+        
+        # Reshape decoder state and Wpa for batch processing
+        decoder_state = decoder_state.view(batch_size, hidden_size, 1)  # [B, H, 1]
+        Wpa = Wpa.squeeze(0)  # Remove batch dimension from Wpa [H, H]
+        
+        # Compute pre-aware context
+        decoder_proj = torch.matmul(Wpa, decoder_state)  # [H, 1]
+        context_key = self.preaware_w1(decoder_proj.transpose(1, 2))  # [B, 1, H]
+        current_key = self.preaware_w2(decoder_state.transpose(1, 2))  # [B, 1, H]
+        preaware_weight = context_key + current_key + decoder_state.transpose(1, 2)  # [B, 1, H]
 
-        # Mapping function P(h_t)
-        context_key = self.preaware_w1(torch.matmul(Wpa, decoder_state))
-        current_key = self.preaware_w2(decoder_state)
-        preaware_weight = context_key + current_key + decoder_state
-
-        # Attention score calculation
+        # Rest of the attention calculation remains the same
         attention_score = self.v(torch.tanh(
-            self.attn_weight(preaware_weight.unsqueeze(1)) + self.context_weight(encoder_outputs)
+            self.attn_weight(preaware_weight) + self.context_weight(encoder_outputs)
         )).squeeze(2)
 
         # Apply softmax to obtain attention weights

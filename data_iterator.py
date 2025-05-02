@@ -1,33 +1,49 @@
 import os
-import numpy as np
-import pickle as pkl
 import sys
+import numpy as np
 import torch
 from PIL import Image
+from torchvision import transforms
+from tqdm import tqdm
 
 
 def dataIterator(image_folder, label_folder, dictionary, batch_size, batch_Imagesize, maxlen, maxImagesize):
-    image_files = sorted([f for f in os.listdir(image_folder) if f.endswith('.jpg')])
+    image_files = sorted([f for f in os.listdir(image_folder) if f.endswith('.png') or f.endswith('.jpg')])
     label_files = sorted([f for f in os.listdir(label_folder) if f.endswith('.txt')])
 
     features = {}
     targets = {}
 
-    for img_file, lbl_file in zip(image_files, label_files):
+    def get_transform(img):
+        # Calculate width to maintain aspect ratio
+        w, h = img.size
+        target_height = 32
+        target_width = int((w / h) * target_height)
+        
+        return transforms.Compose([
+            transforms.Resize((target_height, target_width)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485], std=[0.229])
+        ])
+
+    for img_file, lbl_file in tqdm(zip(image_files, label_files), desc='Loading data'):
         img_path = os.path.join(image_folder, img_file)
         lbl_path = os.path.join(label_folder, lbl_file)
 
-        # Load image and convert to grayscale tensor
+        # Load image and convert to grayscale
         img = Image.open(img_path).convert('L')
-        img = np.array(img, dtype=np.float32) / 255.0  # Normalize pixel values
-        img = torch.tensor(img).unsqueeze(0)  # Add channel dimension
-        features[img_file] = img
+        
+        # Create transform based on image dimensions
+        transform = get_transform(img)
+        
+        # Apply transform
+        img_tensor = transform(img)
+        features[img_file] = img_tensor
 
         # Load label
         with open(lbl_path, 'r') as f:
-            label_text = f.readline().strip().split()
-            uid = label_text[0]
-            word_list = [dictionary[w] if w in dictionary else 0 for w in label_text[1:]]
+            label_text = f.readline().strip()
+            word_list = [dictionary[w] if w in dictionary else 0 for w in label_text.split()]
             targets[img_file] = word_list
 
     imageSize = {uid: fea.shape[1] * fea.shape[2] for uid, fea in features.items()}

@@ -1,9 +1,16 @@
+import os
+import sys
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.nn.parallel import DataParallel
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
+from torch.nn.utils.rnn import pad_sequence
+from torchvision.models import densenet121
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+
 from data_iterator import dataIterator  # Custom data loading module
 from encoder import DenseMD  # Custom DenseNet implementation
 from decoder import AttnDecoderCausal  # Custom Attention Decoder
@@ -12,27 +19,61 @@ from decoder import AttnDecoderCausal  # Custom Attention Decoder
 # Configuration
 class Config:
     # Training Hyperparameters
-    BATCH_SIZE = 4
+    BATCH_SIZE = 4  # Smaller batch size for better generalization
     TEST_BATCH_SIZE = 4
-    LEARNING_RATE = 0.0001
-    MAX_EPOCHS = 200
-    HIDDEN_SIZE = 256
-    TEACHER_FORCING_RATIO = 1.0
-    MAX_SEQUENCE_LENGTH = 48
-    MAX_IMAGE_SIZE = 100000
-    BATCH_IMAGESIZE = 500000
-
+    LEARNING_RATE = 0.0003  # Lower learning rate for better convergence
+    MAX_EPOCHS = 500  # More epochs for thorough training
+    HIDDEN_SIZE = 512  # Increased model capacity
+    TEACHER_FORCING_RATIO = 0.9  # More teacher forcing for stable training
+    MAX_SEQUENCE_LENGTH = 150  # Increased to handle longer formulas
+    MAX_IMAGE_SIZE = 100000  # Increased to handle larger images
+    BATCH_IMAGESIZE = 400000  # Adjusted for new batch size
+    
+    # Optimization parameters
+    NUM_WORKERS = 4  # Reduced to prevent memory issues
+    PIN_MEMORY = True
+    GRADIENT_CLIP = 2.0  # More conservative gradient clipping
+    WEIGHT_DECAY = 0.0001  # L2 regularization
+    
+    # Learning rate scheduling
+    LR_SCHEDULER = True
+    LR_STEP_SIZE = 30
+    LR_GAMMA = 0.95
+    WARMUP_EPOCHS = 5
+    MIN_LR = 1e-6
+    
+    # Dropout and regularization
+    DROPOUT = 0.3
+    ENCODER_DROPOUT = 0.2
+    DECODER_DROPOUT = 0.2
+    
+    # Model architecture
+    ENCODER_LAYERS = 4  # More dense blocks
+    DECODER_BLOCKS = 4  # More decoder blocks
+    ATTENTION_HEADS = 8  # Multi-head attention
+    
+    # Image parameters
+    IMAGE_HEIGHT = 64  # Increased image height for better detail
+    IMAGE_WIDTH = None
+    
+    # Training optimizations
+    USE_AMP = True  # Keep mixed precision
+    ACCUMULATION_STEPS = 4  # Effective batch size of 16
+    
     # Paths (replace with your actual paths or use environment variables)
-    TRAIN_IMAGE_PATH = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\off_image_train\off_image_train.pkl'
-    TRAIN_CAPTION_PATH = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\train_caption.txt'
-    TEST_IMAGE_PATH = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\off_image_test\off_image_test.pkl'
-    TEST_CAPTION_PATH = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\test_caption.txt'
-    DICTIONARY_PATH = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\dictionary.txt'
-    PRETRAINED_DENSENET = r'C:\Users\shash\Downloads\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\Pytorch-Handwritten-Mathematical-Expression-Recognition-master\densenet121-a639ec97.pth'
+    TRAIN_IMAGE_PATH = r'C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\train\extracted_images'
+    TRAIN_CAPTION_PATH = r'C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\train\labels'
+    TEST_IMAGE_PATH = r'C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\test\extracted_images'
+    TEST_CAPTION_PATH = r'C:\Users\shash\PycharmProjects\hmer\mathwriting-2024-excerpt\test\labels'
+    DICTIONARY_PATH = r'C:\Users\shash\PycharmProjects\hmer\dictionary.txt'
+    PRETRAINED_DENSENET = r'C:\Users\shash\PycharmProjects\hmer\densenet121_pretrained.pth'
 
     # GPU Configuration
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     GPU_IDS = [0] if torch.cuda.is_available() else []
+    
+    # Added new parameter
+    USE_PIN_MEMORY = torch.cuda.is_available()
 
 
 def compute_wer(label, rec):
@@ -66,12 +107,6 @@ def load_dictionary(dict_file):
 
 class MathExpressionDataset(Dataset):
     def __init__(self, features, labels):
-        """
-        Args:
-            features (list): List of feature batches
-            labels (list): List of corresponding label batches
-        """
-        # Flatten the batched data
         self.features = [feat for batch in features for feat in batch]
         self.labels = [lab for batch in labels for lab in batch]
 
@@ -79,57 +114,41 @@ class MathExpressionDataset(Dataset):
         return len(self.features)
 
     def __getitem__(self, idx):
-        """
-        Convert numpy arrays to torch tensors
-
-        Args:
-            idx (int): Index of the sample
-
-        Returns:
-            tuple: (image tensor, label tensor)
-        """
-        # Convert features to torch tensor
-        # Assuming features are numpy arrays
-        feature = torch.from_numpy(self.features[idx]).float()
-
-        # Convert labels to torch tensor
-        label = torch.tensor(self.labels[idx], dtype=torch.long)
-
+        feature = self.features[idx].float()
+        label = self.labels[idx]  # return as list or tensor, handle in collate_fn
         return feature, label
 
 
-def create_data_loaders(train_images, train_labels, test_images, test_labels, batch_size, num_workers=2):
-    """
-    Create train and test data loaders
+def collate_fn(batch):
+    features, labels = zip(*batch)
+    features = torch.stack(features)
+    labels = [torch.tensor(label, dtype=torch.long) for label in labels]
+    padded_labels = pad_sequence(labels, batch_first=True, padding_value=0)
+    return features, padded_labels
 
-    Args:
-        train_images (list): Training image features
-        train_labels (list): Training labels
-        test_images (list): Test image features
-        test_labels (list): Test labels
-        batch_size (int): Batch size for data loader
-        num_workers (int): Number of workers for data loading
 
-    Returns:
-        tuple: (train_loader, test_loader)
-    """
-    # Create datasets
+def create_data_loaders(train_images, train_labels, test_images, test_labels, batch_size, num_workers=4):
     train_dataset = MathExpressionDataset(train_images, train_labels)
     test_dataset = MathExpressionDataset(test_images, test_labels)
 
-    # Create data loaders
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
         batch_size=batch_size,
         shuffle=True,
-        num_workers=num_workers
+        num_workers=num_workers,
+        pin_memory=Config.USE_PIN_MEMORY,  # Only use pin_memory if GPU is available
+        collate_fn=collate_fn,
+        persistent_workers=True if num_workers > 0 else False  # Only use if we have workers
     )
 
     test_loader = torch.utils.data.DataLoader(
         test_dataset,
         batch_size=batch_size,
         shuffle=False,
-        num_workers=num_workers
+        num_workers=num_workers,
+        pin_memory=Config.USE_PIN_MEMORY,  # Only use pin_memory if GPU is available
+        collate_fn=collate_fn,
+        persistent_workers=True if num_workers > 0 else False
     )
 
     return train_loader, test_loader
@@ -140,17 +159,39 @@ def train_epoch(encoder, decoder, train_loader, criterion, encoder_optimizer, de
     decoder.train()
     total_loss = 0.0
 
-    for batch_idx, (images, labels) in enumerate(train_loader):
-        images, labels = images.to(config.DEVICE), labels.to(config.DEVICE)
+    # Add progress bar
+    pbar = tqdm(train_loader, desc='Training')
 
-        # Forward pass
-        encoder_output = encoder(images)
-        # Add your decoder logic here similar to the original implementation
+    for batch_idx, (images, labels) in enumerate(pbar):
+        images = images.to(config.DEVICE)  # [batch_size, 1, H, W]
+        labels = labels.to(config.DEVICE)  # [batch_size, seq_len]
+        
+        # Forward pass through encoder
+        encoder_outputs = encoder(images)  # [batch_size, hidden_size, H', W']
+        
+        # Prepare encoder outputs for decoder
+        B, C, H, W = encoder_outputs.size()
+        encoder_outputs = encoder_outputs.permute(0, 2, 3, 1).reshape(B, H*W, C)
+        
+        # Initialize attention
+        previous_attention = torch.zeros(B, H*W).to(config.DEVICE)
+        
+        # Get target sequence length from labels
+        target_length = labels.size(1)
+        decoder_input = torch.zeros(B, target_length).long().to(config.DEVICE)
+        decoder_input[:, 0] = labels[:, 0]  # Start with first target token
+        
+        # Pre-aware attention matrix
+        Wpa = torch.eye(config.HIDDEN_SIZE).to(config.DEVICE)
+        
+        # Forward pass through decoder
+        decoder_output, _ = decoder(decoder_input, encoder_outputs, previous_attention, Wpa)
+        
+        # Calculate loss
+        loss = criterion(decoder_output.reshape(-1, decoder_output.size(-1)), 
+                        labels.reshape(-1))
 
-        # Compute loss
-        loss = criterion(decoder_output, labels)
-
-        # Backward and optimize
+        # Backpropagation
         encoder_optimizer.zero_grad()
         decoder_optimizer.zero_grad()
         loss.backward()
@@ -158,6 +199,9 @@ def train_epoch(encoder, decoder, train_loader, criterion, encoder_optimizer, de
         decoder_optimizer.step()
 
         total_loss += loss.item()
+        
+        if batch_idx % 10 == 0:  # Reduced logging frequency
+            pbar.set_postfix({'Loss': f'{loss.item():.4f}'})
 
     return total_loss / len(train_loader)
 
@@ -172,23 +216,58 @@ def evaluate(encoder, decoder, test_loader, config):
 
     with torch.no_grad():
         for images, labels in test_loader:
-            images, labels = images.to(config.DEVICE), labels.to(config.DEVICE)
+            images = images.to(config.DEVICE)
+            labels = labels.to(config.DEVICE)
+            
+            # Forward pass through encoder
+            encoder_outputs = encoder(images)
+            
+            # Prepare encoder outputs for decoder
+            B, C, H, W = encoder_outputs.size()
+            encoder_outputs = encoder_outputs.permute(0, 2, 3, 1).reshape(B, H*W, C)
+            
+            # Initialize attention and decoder input
+            previous_attention = torch.zeros(B, H*W).to(config.DEVICE)
+            decoder_input = torch.zeros(B, 1).long().to(config.DEVICE)
+            Wpa = torch.eye(config.HIDDEN_SIZE).to(config.DEVICE)
+            
+            # Generate sequence
+            max_length = config.MAX_SEQUENCE_LENGTH
+            predictions = []
+            
+            for t in range(max_length):
+                decoder_output, previous_attention = decoder(
+                    decoder_input, encoder_outputs, previous_attention, Wpa
+                )
+                # Get most likely token
+                token = decoder_output.argmax(dim=-1)
+                predictions.append(token)
+                decoder_input = token
+                
+                # Stop if all sequences have reached end token
+                if (token == 0).all():  # Assuming 0 is end token
+                    break
+            
+            predictions = torch.stack(predictions, dim=1)
+            
+            # Calculate metrics
+            for pred, label in zip(predictions, labels):
+                dist, length = compute_wer(label.cpu().numpy(), pred.cpu().numpy())
+                total_dist += dist
+                total_label += length
+                total_line += 1
+                if dist == 0:
+                    total_line_rec += 1
 
-            # Prediction logic goes here
-            # Similar to the original implementation's testing section
-
-    wer = float(total_dist) / total_label
-    sacc = float(total_line_rec) / total_line
+    wer = float(total_dist) / total_label if total_label > 0 else float('inf')
+    sacc = float(total_line_rec) / total_line if total_line > 0 else 0
     return wer, sacc
 
 
 def main():
     config = Config()
-
-    # Load dictionary
     worddicts = load_dictionary(config.DICTIONARY_PATH)
 
-    # Load data
     train_images, train_labels = dataIterator(
         config.TRAIN_IMAGE_PATH,
         config.TRAIN_CAPTION_PATH,
@@ -209,10 +288,6 @@ def main():
         maxImagesize=config.MAX_IMAGE_SIZE
     )
 
-    # Create datasets and dataloaders
-    train_dataset = MathExpressionDataset(train_images, train_labels, worddicts)
-    test_dataset = MathExpressionDataset(test_images, test_labels, worddicts)
-
     train_loader, test_loader = create_data_loaders(
         train_images,
         train_labels,
@@ -221,18 +296,30 @@ def main():
         batch_size=config.BATCH_SIZE
     )
 
-    # Initialize models
-    encoder = DenseNet()
-    decoder = AttnDecoderCausal(config.HIDDEN_SIZE, 112)
-
-    # Load pretrained weights
+    encoder = DenseMD(
+        growth_rate=32,
+        block_config=(6, 12, 24, 16),
+        num_init_features=64,
+        hidden_channels=config.HIDDEN_SIZE
+    ).to(config.DEVICE)
+    
+    # Load pretrained weights and adapt to our architecture
     pretrained_dict = torch.load(config.PRETRAINED_DENSENET)
     encoder_dict = encoder.state_dict()
-    pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in encoder_dict}
+    
+    # Filter out first conv layer and any incompatible layers
+    pretrained_dict = {k: v for k, v in pretrained_dict.items() 
+                      if k in encoder_dict and 'conv0' not in k}
+    
+    # Update only the compatible layers
     encoder_dict.update(pretrained_dict)
-    encoder.load_state_dict(encoder_dict)
+    encoder.load_state_dict(encoder_dict, strict=False)
 
-    # Move to GPU
+    decoder = AttnDecoderCausal(
+        hidden_size=config.HIDDEN_SIZE,
+        output_size=len(worddicts)  # vocabulary size
+    ).to(config.DEVICE)
+
     encoder = encoder.to(config.DEVICE)
     decoder = decoder.to(config.DEVICE)
 
@@ -240,16 +327,13 @@ def main():
         encoder = DataParallel(encoder, device_ids=config.GPU_IDS)
         decoder = DataParallel(decoder, device_ids=config.GPU_IDS)
 
-    # Optimizers
     encoder_optimizer = optim.SGD(encoder.parameters(), lr=config.LEARNING_RATE, momentum=0.9)
     decoder_optimizer = optim.SGD(decoder.parameters(), lr=config.LEARNING_RATE, momentum=0.9)
 
-    # Loss function
     criterion = nn.NLLLoss()
 
     best_sacc = 0.0
 
-    # Training loop
     for epoch in range(config.MAX_EPOCHS):
         train_loss = train_epoch(encoder, decoder, train_loader, criterion,
                                  encoder_optimizer, decoder_optimizer, config)
@@ -258,7 +342,6 @@ def main():
 
         print(f'Epoch {epoch + 1}: Train Loss = {train_loss:.4f}, WER = {wer:.4f}, SACC = {sacc:.4f}')
 
-        # Save best model
         if sacc > best_sacc:
             best_sacc = sacc
             torch.save(encoder.state_dict(), 'best_encoder.pth')
