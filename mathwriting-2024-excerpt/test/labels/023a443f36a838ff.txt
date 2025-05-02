@@ -1,0 +1,1 @@
+\nabla_{\vec{\theta}}=D_{d}\nabla

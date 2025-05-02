@@ -1,0 +1,1 @@
+nlog_{2}n-\frac{n}{ln2}

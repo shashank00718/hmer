@@ -1,0 +1,1 @@
+x_{i}^{\prime}\equiv\frac{1}{1+e^{-\frac{x_{i}-\mu_{i}}{\sigma_{i}}}}

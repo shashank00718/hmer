@@ -1,0 +1,1 @@
+l_{n}=kl_{n}\cdot\frac{b_{n}}{b_{a}}\cdot\frac{s_{n}}{s_{a}}

@@ -1,0 +1,1 @@
+w(\neg\theta)=F_{\neg}(w(\theta))

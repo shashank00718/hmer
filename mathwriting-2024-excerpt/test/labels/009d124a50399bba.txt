@@ -1,0 +1,1 @@
+J_{i}=\sum_{j}L_{ij}\frac{\partial F_{j}}{\partial x_{j}}

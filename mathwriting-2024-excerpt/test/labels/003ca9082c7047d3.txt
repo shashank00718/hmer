@@ -1,0 +1,1 @@
+\partial_{i}f=\frac{\partial f}{\partial\xi^{i}}:=\frac{\partial\overline{f}}{\partial\xi^{i}}

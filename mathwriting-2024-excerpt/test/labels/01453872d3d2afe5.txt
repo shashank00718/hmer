@@ -1,0 +1,1 @@
+=J+\varepsilon_{0}\frac{\partial E}{\partial t}

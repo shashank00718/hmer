@@ -1,0 +1,1 @@
+S_{ijk}\rightarrow S_{ij}(\omega_{k})

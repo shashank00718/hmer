@@ -1,0 +1,1 @@
+|g,n\rangle\rightarrow|e,n-1\rangle

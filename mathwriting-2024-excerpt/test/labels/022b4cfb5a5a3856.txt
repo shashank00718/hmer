@@ -1,0 +1,1 @@
+d^{\prime}=V_{ud}d+V_{us}s

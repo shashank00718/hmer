@@ -1,0 +1,1 @@
+\Omega(eg)=g^{-1}\Omega(e)g

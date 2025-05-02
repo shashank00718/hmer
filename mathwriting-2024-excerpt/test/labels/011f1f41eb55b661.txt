@@ -1,0 +1,1 @@
+\left(\frac{lnN}{N}\right)\rightarrow0

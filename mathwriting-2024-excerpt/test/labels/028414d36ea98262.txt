@@ -1,0 +1,1 @@
+\Delta b/b^{2}\approx\Delta f/f^{2}

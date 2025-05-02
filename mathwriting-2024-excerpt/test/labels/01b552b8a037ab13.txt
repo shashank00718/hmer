@@ -1,0 +1,1 @@
+T_{pq}(e_{p}\otimes e_{q})

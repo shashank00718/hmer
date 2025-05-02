@@ -1,0 +1,1 @@
+\Omega\left(R\right)=cP\left(R\right)

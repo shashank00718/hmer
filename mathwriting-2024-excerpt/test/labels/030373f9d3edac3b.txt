@@ -1,0 +1,1 @@
+\frac{R_{U}}{r_{e}}\approx\frac{r_{H}}{r_{e}}\approx10^{42}

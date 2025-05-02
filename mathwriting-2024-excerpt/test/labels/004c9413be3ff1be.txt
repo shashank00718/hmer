@@ -1,0 +1,1 @@
+\langle A\rangle_{\psi}=\|A\psi\|^{2}

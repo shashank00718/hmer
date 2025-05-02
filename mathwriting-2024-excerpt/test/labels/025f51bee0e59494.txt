@@ -1,0 +1,1 @@
+g=g_{-1}\oplus g_{0}\oplus g_{1}

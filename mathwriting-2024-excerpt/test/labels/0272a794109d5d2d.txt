@@ -1,0 +1,1 @@
+P_{F}=\sqrt{P_{P}\cdot P_{L}}

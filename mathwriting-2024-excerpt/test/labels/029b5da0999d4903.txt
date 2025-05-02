@@ -1,0 +1,1 @@
+\omega_{\{(k,i),(k^{\prime},i^{\prime}),(k^{\prime\prime},i^{\prime\prime})\}}

@@ -1,0 +1,1 @@
+\{f_{X}(\cdot;\theta)|\theta\in\Theta\}
