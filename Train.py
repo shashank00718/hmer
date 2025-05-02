@@ -10,6 +10,7 @@ from torch.nn.utils.rnn import pad_sequence
 from torchvision.models import densenet121
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+import pickle
 
 from data_iterator import dataIterator  # Custom data loading module
 from encoder import DenseMD  # Custom DenseNet implementation
@@ -19,15 +20,15 @@ from decoder import AttnDecoderCausal  # Custom Attention Decoder
 # Configuration
 class Config:
     # Training Hyperparameters
-    BATCH_SIZE = 4  # Smaller batch size for better generalization
-    TEST_BATCH_SIZE = 4
-    LEARNING_RATE = 0.0003  # Lower learning rate for better convergence
-    MAX_EPOCHS = 500  # More epochs for thorough training
-    HIDDEN_SIZE = 512  # Increased model capacity
-    TEACHER_FORCING_RATIO = 0.9  # More teacher forcing for stable training
-    MAX_SEQUENCE_LENGTH = 150  # Increased to handle longer formulas
-    MAX_IMAGE_SIZE = 100000  # Increased to handle larger images
-    BATCH_IMAGESIZE = 400000  # Adjusted for new batch size
+    BATCH_SIZE = 16  # Larger batch size for faster training while maintaining stability
+    TEST_BATCH_SIZE = 16
+    LEARNING_RATE = 0.002  # Slightly higher learning rate for faster convergence
+    MAX_EPOCHS = 100  # Reduced epochs but still enough for good convergence
+    HIDDEN_SIZE = 256  # Moderate size for good balance
+    TEACHER_FORCING_RATIO = 0.8  # Standard teacher forcing ratio
+    MAX_SEQUENCE_LENGTH = 100  # Reasonable length for most formulas
+    MAX_IMAGE_SIZE = 50000  # Moderate size limit
+    BATCH_IMAGESIZE = 350000  # Adjusted for new batch size
     
     # Optimization parameters
     NUM_WORKERS = 4  # Reduced to prevent memory issues
@@ -264,6 +265,20 @@ def evaluate(encoder, decoder, test_loader, config):
     return wer, sacc
 
 
+def save_model_state(encoder, decoder, config, worddicts, metadata, filename='trained_model.pkl'):
+    """Save complete model state and configuration"""
+    model_state = {
+        'encoder_state': encoder.state_dict(),
+        'decoder_state': decoder.state_dict(),
+        'config': config.__dict__,
+        'vocabulary': worddicts,
+        'metadata': metadata
+    }
+    
+    with open(filename, 'wb') as f:
+        pickle.dump(model_state, f)
+    print(f"Model saved to {filename}")
+
 def main():
     config = Config()
     worddicts = load_dictionary(config.DICTIONARY_PATH)
@@ -333,6 +348,11 @@ def main():
     criterion = nn.NLLLoss()
 
     best_sacc = 0.0
+    metadata = {
+        'best_accuracy': 0.0,
+        'best_epoch': 0,
+        'training_completed': False
+    }
 
     for epoch in range(config.MAX_EPOCHS):
         train_loss = train_epoch(encoder, decoder, train_loader, criterion,
@@ -344,11 +364,21 @@ def main():
 
         if sacc > best_sacc:
             best_sacc = sacc
+            metadata.update({
+                'best_accuracy': best_sacc,
+                'best_epoch': epoch + 1,
+                'wer_at_best': wer,
+                'train_loss_at_best': train_loss
+            })
+            # Save both individual model files and complete state
             torch.save(encoder.state_dict(), 'best_encoder.pth')
             torch.save(decoder.state_dict(), 'best_decoder.pth')
+            save_model_state(encoder, decoder, config, worddicts, metadata)
 
+    metadata['training_completed'] = True
+    # Save final state
+    save_model_state(encoder, decoder, config, worddicts, metadata, 'final_model.pkl')
     print(f'Best Sequence Accuracy: {best_sacc:.4f}')
-
 
 if __name__ == '__main__':
     main()
